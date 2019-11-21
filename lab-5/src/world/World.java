@@ -6,9 +6,11 @@ import organism.*;
 
 public class World
 {
+	static int arraySize = 100;
+	static int rowNum = 10;
 	private Organism[] array;
 	public World(){
-		int arraySize = 25;
+		//int arraySize = 25;
 		array = new Organism[arraySize];
 		Random rand = new Random();
 		for(int i = 0; i < arraySize; i++){
@@ -45,27 +47,21 @@ public class World
 		
 	}
 	public void print(){
-		for(int i = 0; i < 5;i++){
-			System.out.print("+----------------------------------------------------------------+\n");
-			System.out.print("|            |            |            |            |            |\n");
-			//System.out.printin("|" + array[i*5].print() +"|"+array[i*5+1].print()+"|"+array[i*5+2].print()+"|"+array[i*5+3].print()+"|"+array[i*5+4].print()+"|\n");
-			array[i*5].print();
-			System.out.print("|");
-			array[i*5+1].print();
-			System.out.print("|");
-			array[i*5+2].print();
-			System.out.print("|");
-			array[i*5+3].print();
-			System.out.print("|");
-			array[i*5+4].print();
-			System.out.print("|/n");
-			System.out.print("|            |            |            |            |            |\n");
-			if( i == 4){System.out.print("+----------------------------------------------------------------+\n");}
+		for(int i = 0; i < rowNum;i++){
+			System.out.print("+---------------------------------------------------------------------------------------------------------------------------------+\n");
+			System.out.print("|            |            |            |            |            |            |            |            |            |            |\n");
+			for(int j = 0; j < rowNum; j++) {
+				System.out.print("|");
+				array[i*rowNum + j].print();
+			}
+			System.out.print("|\n");
+			System.out.print("|            |            |            |            |            |            |            |            |            |            |\n");
+			if( i == (rowNum-1)){System.out.print("+---------------------------------------------------------------------------------------------------------------------------------+\n");}
 		}
 	}
 	public void iterate(){
-		for(int i = 0; i < 25; i++){
-			array[i].checkAlive(array,25);
+		for(int i = 0; i < arraySize; i++){
+			array[i].FindFood(array,100,i,arraySize,rowNum);
 		}
 	}
 	
@@ -73,6 +69,7 @@ public class World
 	public static void main(String[] args){
 		World map = new World();
 		map.print();
+		System.out.print("\n After a week\n");
 		map.iterate();
 		map.print();
 	}
