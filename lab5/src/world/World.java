@@ -1,9 +1,9 @@
-/**
- * @Xinyu Liu 200362878
- * @version     1.0                 
- * @date: 10/31/2019
- */
+package world;
 import java.util.Random;
+
+import organism.Organism;
+import organism.*;
+
 public class World
 {
 	private Organism[] array;
@@ -14,29 +14,29 @@ public class World
 		for(int i = 0; i < arraySize; i++){
 			int rand_int = rand.nextInt(12);
 		switch(rand_int){
-			case 0:	array[i] = Tree();
+			case 0:	array[i] = new Tree();
 				break;
-			case 1:	array[i] = Grass();
+			case 1:	array[i] = new Grass();
 				break;
-			case 2:	array[i] = Caterpillar();
+			case 2:	array[i] = new Caterpillar();
 				break;
-			case 3:	array[i] = Bluejay();
+			case 3:	array[i] = new Bluejay();
 				break;
-			case 4:	array[i] = Grasshopper();
+			case 4:	array[i] = new Grasshopper();
 				break;
-			case 5:	array[i] = Mouse();
+			case 5:	array[i] = new Mouse();
 				break;
-			case 6:	array[i] = Deer();
+			case 6:	array[i] = new Deer();
 				break;		
-			case 7:	array[i] = Rabbit();
+			case 7:	array[i] = new Rabbit();
 				break;
-			case 8:	array[i] = Squirrel();
+			case 8:	array[i] = new Squirrel();
 				break;
-			case 9:	array[i] = Hawk();
+			case 9:	array[i] = new Hawk();
 				break;
-			case 10:	array[i] = Fox();
+			case 10:	array[i] = new Fox();
 				break;
-			case 11:	array[i] = Wolf();
+			case 11:	array[i] = new Wolf();
 				break;
 			default:
 					break;
@@ -48,7 +48,17 @@ public class World
 		for(int i = 0; i < 5;i++){
 			System.out.print("+----------------------------------------------------------------+\n");
 			System.out.print("|            |            |            |            |            |\n");
-			System.out.print("|"+array[i*5].print()+"|"+array[i*5+1].print()+"|"+array[i*5+2].print()+"|"+array[i*5+3].print()+"|"+array[i*5+4].print()+"|\n",);
+			//System.out.printin("|" + array[i*5].print() +"|"+array[i*5+1].print()+"|"+array[i*5+2].print()+"|"+array[i*5+3].print()+"|"+array[i*5+4].print()+"|\n");
+			array[i*5].print();
+			System.out.print("|");
+			array[i*5+1].print();
+			System.out.print("|");
+			array[i*5+2].print();
+			System.out.print("|");
+			array[i*5+3].print();
+			System.out.print("|");
+			array[i*5+4].print();
+			System.out.print("|/n");
 			System.out.print("|            |            |            |            |            |\n");
 			if( i == 4){System.out.print("+----------------------------------------------------------------+\n");}
 		}
@@ -61,7 +71,7 @@ public class World
 	
 	
 	public static void main(String[] args){
-		World map = new Wolrd();
+		World map = new World();
 		map.print();
 		map.iterate();
 		map.print();

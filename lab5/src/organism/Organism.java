@@ -1,50 +1,45 @@
-/**
- * @Xinyu Liu 200362878
- * @version     1.0                 
- * @date: 10/31/2019
- */
+package organism;
 
-public class Organism
-{
-	private string Name;
+public class Organism {
+	private String Name;
 	private boolean Alive;
-	private string Food_1;
-	private string Food_2;
-	private string Food_3;
-	private string Food_4;
+	private String Food_1;
+	private String Food_2;
+	private String Food_3;
+	private String Food_4;
 	public Organism(){
 		Food_1 = Food_2 = Food_3 = Food_4 = "NULL";
-		alive = true;
+		Alive = true;
 	}
-	public Organism(string name){
+	public Organism(String name){
 		Name = name;
-		alive = true;
+		Alive = true;
 		Food_1 = Food_2 = Food_3 = Food_4 = "NULL";
 	}
-	public Organism(string name, string food1){
+	public Organism(String name, String food1){
 		Name = name;
-		alive = true;
+		Alive = true;
 		Food_1 = food1;
 		Food_2 = Food_3 = Food_4 = "NULL";
 	}	
-	public Organism(string name, string food1, string food2){
+	public Organism(String name, String food1, String food2){
 		Name = name;
-		alive = true;
+		Alive = true;
 		Food_1 = food1;
 		Food_2 = food2;
 		Food_3 = Food_4 = "NULL";
 	}
-	public Organism(string name, string food1, string food2, string food3){
+	public Organism(String name, String food1, String food2, String food3){
 		Name = name;
-		alive = true;
+		Alive = true;
 		Food_1 = food1;
 		Food_2 = food2;
 		Food_3 = food3;
 		Food_4 = "NULL";
 	}
-	public Organism(string name, string food1, string food2, string food3, string food4){
+	public Organism(String name, String food1, String food2, String food3, String food4){
 		Name = name;
-		alive = true;
+		Alive = true;
 		Food_1 = food1;
 		Food_2 = food2;
 		Food_3 = food3;
@@ -56,10 +51,10 @@ public class Organism
 	public void setAlive(boolean alive){
 		Alive = alive;
 	}
-	public string getName(){
+	public String getName(){
 		return Name;
 	}
-	public print(){
+	public void print(){
 		if(Alive){
 			int length = Name.length();
 			int leftspace = 12 - length;
@@ -75,17 +70,18 @@ public class Organism
 			}
 		}
 	}
-	public void checkAlive(const &Organism[], int length){
+	public void checkAlive(Organism[] organism, int length){
 		if(Name == "Tree" || Name == "Grass"){
 			return;
 		}
-		boolean alive = false;
-		string orgnismName = Organism[i].getName;
+		boolean Alive = false;
 		for(int i = 0; i < length; i++){
-			if(orgnismName == food_1 || orgnismName == food_2 || orgnismName == food_3 || orgnismName == food_4){
+			String orgnismName = organism[i].getName();
+			if(orgnismName == Food_1 || Food_2 != "NULL" && (orgnismName == Food_2 || Food_3!="NULL" && (orgnismName == Food_3 || Food_4 != "NULL" && orgnismName == Food_4))){
 				return;
 			}
 		}
-		this.setAlive(alive);
-	}	
+		this.setAlive(Alive);
+	}
+
 }

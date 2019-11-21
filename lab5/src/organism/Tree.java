@@ -3,10 +3,10 @@
  * @version     1.0                 
  * @date: 10/31/2019
  */
+package organism;
 
-public class Hawk extend Organism
-{
-	public Hawk(){
-		super("Hawk","Mouse","Squirrel");
+public class Tree extends Organism{
+	public Tree(){
+		super("Tree");
 	}
 }
